@@ -2,7 +2,7 @@ function FractionPool()
 {
 	this.fractions_four = [ [ "1/4", "1/6", "1/3", "2/8" ], [ "1/15", "2/5", "1/5", "1/3" ], [ "1/18", "1/9", "1/3", "1/2" ], ["3/16","7/16","1/8","1/4"] ];
     this.fractions_three = [ [ "1/4", "2/3", "1/12" ], [ "1/2", "1/6", "1/3"], [ "1/12", "1/12", "5/6"], [ "1/4", "3/8", "6/16" ] ];
-    this.colorPool = [ 'Blue', 'Black', 'Red', 'Green'];
+    this.colorPool = [ "Blue", "Black", "Red", "Green"];
     
     this.getRandomQuestion = function(numberOfFractions)
     {
