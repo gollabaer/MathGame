@@ -7,7 +7,7 @@ function Options()
 	this.MinColors = 3;
 	this.MaxColors = 4;
 	this.MinQuizzes = 1;
-	this.MaxQuizzes = 11;
+	this.MaxQuizzes = 3;
 	this.TimerAmount = 10;
 	this.RevealAnswers = false;
 	

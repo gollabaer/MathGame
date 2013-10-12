@@ -11,7 +11,9 @@ function Quiz()
 
 	this.Correct = 0;
 	this.Wrong = 0;
+	
 	this.Score = 0;
+	this.TimeScore = 0;
 	this.CurrentQuestion = 0;
 	
 	this.SetUpQuiz();
@@ -44,3 +46,16 @@ Quiz.prototype.SetUpQuiz = function()
 		this.Questions[i] = question;
 	}
 };
+
+Quiz.prototype.CalculateScore = function()
+{
+	//Calculate Score this.Score, this.Correct, this.Wrong
+	alert("Score is calculated");
+};
+
+Quiz.prototype.ScoreTime = function()
+{
+	//Calculate Time Score this.TimeScore
+	alert("Time is calculated");
+};
+

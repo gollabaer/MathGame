@@ -88,14 +88,40 @@ function OutputQuestion(quiz){
 		newQuestion.innerHTML += '</div><br /><br />';
 		
 		
-		
 		gameContent.appendChild(newQuestion);
 
 //	}
 }
 
+function DisplayScore(quiz)
+{
+//Display the score to the game content div	
+	alert("Score Should be displayed to html")
+}
 
 function DisableQuestion(index)
 {
-	$('#' + index).hide();;//   .attr('visible', false);
+	$('#' + index).hide();
+}
+
+function ShowStar(id)
+{
+	 document.getElementById('star' + id ).style.visibility='visible';
+}
+
+function ShowCheck(id)
+{
+	 document.getElementById('X' + id).style.visibility='visible';
+}
+
+function DisplayScoreQuizButton()
+{
+	//Logic to make the display score quiz button appear
+	alert("Score Quiz Button Should Appear");
+}
+
+function DisplayAnswer(id)
+{
+	//Based on the id make the place holder for the answer hide or show
+	alert("Answer should Show");
 }

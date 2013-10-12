@@ -4,6 +4,8 @@ function Question(numberOfColors)
 	this.Fractions = new Array();
 	this.Answer = new Fraction();
 	this.NumberOfColors = 0;
+	this.Correct = false;
+	this.TimeBonus = 0;
 
 	var answerNumber = getRandomInt(0, numberOfColors - 1);
 	

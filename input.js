@@ -21,3 +21,12 @@ function GetAnswer(index)
 	
 	
 };
+
+function SetFocus(index)
+{
+	$('#n' + index).focus();
+	
+	var position = $('#n' + index).position();
+	
+	window.scroll(position.left, position.top);
+}
