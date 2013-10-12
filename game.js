@@ -19,12 +19,11 @@ function GameStart()
 function right(id){
 	 document.getElementById('star' + id ).style.visibility='visible';
 	 $('#star').show();
-	 alert ("correct!");	
+	 //alert ("correct!");	
 }
-
 function wrong(id){
 	 document.getElementById('X' + id).style.visibility='visible';
-	 alert ("incorrect Answer!");
+	 //alert ("incorrect Answer!");
 	 	
 }
 
@@ -49,7 +48,7 @@ function ReceiveInput(id, answer)
 		wrong(id);
 				
 	}
-	alert(id + " " + answer.GetAsString());
+	//alert(id + " " + answer.GetAsString());
 	
 	
 	DisableQuestion(id);

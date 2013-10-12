@@ -23,7 +23,21 @@ Quiz.prototype.SetUpQuiz = function()
 
 	for ( var i = 0; i < numberOfQuestions; i++) {
 		
-		var numberOfColors = getRandomInt(window._Options.MinColors, window._Options.MaxColors);
+		var numberOfColors;
+		
+		if(window._Options.UseGenerator)
+			{
+	        	switch (window._Options.Level)
+	        	{
+	        		case 1: numberOfColors = 3;break;//Easy
+	        		case 2: numberOfColors = 3;break;//Medium
+	        		case 3: numberOfColors = 4;break;//Hard
+	        	}
+			}
+		else
+			{
+				numberOfColors = getRandomInt(window._Options.MinColors, window._Options.MaxColors);//LevelBased
+			}
 		
 		var question = new Question(numberOfColors);
 		

@@ -1,7 +1,7 @@
 function Options()
 {
 	this.Timer = false;
-	this.Level = 1;
+	
 	this.MinimumQuestions = 10;
 	this.MaximumQuestions = 10;
 	this.MinColors = 3;
@@ -10,6 +10,13 @@ function Options()
 	this.MaxQuizzes = 11;
 	this.TimerAmount = 10;
 	this.RevealAnswers = false;
+	
+	//This will enable the random fraction generator
+	//If Use Generator is true than level can be no greater than 3
+	//If Use Generator is false level can be between 1-99
+	this.UseGenerator = false;
+	this.Level = 1;
+	
 };
 
 
