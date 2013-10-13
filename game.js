@@ -8,8 +8,10 @@ function GameStart()
 	//Create the quiz for the user to take
 	window._Quiz = new Quiz();
 	
-	
-	//Start The Timer --To Do
+	if(window._Options.Timer)
+	{
+		//Start The Timer --To Do
+	}
 	
 	//Output first question of the quiz
 	OutputQuestion(window._Quiz);
@@ -21,22 +23,19 @@ function GameStart()
  */
 function ReceiveInput(id, answer)
 {
-	//Stop The Timer --To Do
+	if(window._Options.Timer)
+	{
+		//Stop The Timer --To Do
+	}
 	
 	//If the answer is right
 	if(answer.DecValue == window._Quiz.Questions[i].Answer.DecValue)
-	{
+	{		
 		right(id);
-		window._Quiz.Questions[id -1].Correct = true;
-		
-		//set time bonus in window._Quiz.Questions[id -1].TimeBonus --To Do
 	}//Else the answer is wrong
 	else
-	{
-		wrong(id);			
-		window._Quiz.Questions[id -1].Correct = false;
-		
-		//set time bonus in window._Quiz.Questions[id -1].TimeBonus = 0 because no time bonus if answer is wrong --To Do
+	{		
+		wrong(id);	
 	}
 	
 	//Disable Last Question
@@ -50,7 +49,6 @@ function ReceiveInput(id, answer)
 	
 	//Increment Question Number
 	window._Quiz.CurrentQuestion = (window._Quiz.CurrentQuestion + 1);
-	
 	
 	//If the last question display the score quiz button
 	if(window._Quiz.CurrentQuestion == window._Quiz.Questions.length)
@@ -70,28 +68,52 @@ function ReceiveInput(id, answer)
 		
 		//Set Focus to New question
 		SetFocus(id + 1);
-		
 	}
 }
 
 //Post Processing for right answers
 function right(id)
 {
+	window._Quiz.Questions[id -1].Correct = true;
+	
 	ShowStar(id);
+	
+	if(window._Options.Timer)
+	{
+		//set time bonus in window._Quiz.Questions[id -1].TimeBonus --To Do
+		
+		if(window._Quiz.Questions[id -1].TimeBonus > 0)
+		{
+			ShowTimeBonus(id, window._Quiz.Questions[id -1].TimeBonus);
+		}
+	}
+	
 }
 
 //Post processing for wrong answers
 function wrong(id)
 {
+	window._Quiz.Questions[id -1].Correct = false;
+	
  	ShowCheck(id);
+ 	
+ 	if(window._Options.Timer)
+	{
+		//set time bonus in window._Quiz.Questions[id -1].TimeBonus = 0 because no time bonus if answer is wrong --To Do
+	}
 }
 
 function CalculateScore(quiz)
 {
 	//Calculate the quiz score
 	quiz.CalculateScore();
+	
 	//Calculate the time Bonus
-	quiz.ScoreTime();
+	if(window._Options.Timer)
+	{
+		quiz.ScoreTime();
+	}
+	
 	//Output Score to Game div
 	DisplayScore(quiz);
 }

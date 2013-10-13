@@ -1,9 +1,9 @@
 function Options()
 {
-	this.Timer = false;
+	this.Timer = true;
 	
-	this.MinimumQuestions = 10;
-	this.MaximumQuestions = 10;
+	this.MinimumQuestions = 3;
+	this.MaximumQuestions = 3;
 	this.MinColors = 3;
 	this.MaxColors = 4;
 	this.MinQuizzes = 1;

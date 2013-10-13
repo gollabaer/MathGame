@@ -10,7 +10,6 @@ function Fraction()
         this._fractionAsString = "";
     }
       
-
 Fraction.prototype.numdenum = function(inNumerator, inDenominator)
         {
             this.Numerator = inNumerator;
