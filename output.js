@@ -74,7 +74,9 @@ function OutputQuestion(quiz){
 		//Fraction Number
 		for(var j = 0; j < quiz.Questions[i].Fractions.length; j++)
 		{
-			newQuestion.innerHTML += "(" + quiz.Questions[i].Fractions[j].GetAsString() + ") ";
+			//newQuestion.innerHTML += "<span style=\"font-size: 40px;\" class=\"fractionColor" + (j+1) + "\"> " + quiz.Questions[i].Fractions[j].GetAsString() + " </span> ";
+			newQuestion.innerHTML += "<span style=\"font-size: 40px; color: " + quiz.Questions[i].Fractions[j].Color + "\"> " + quiz.Questions[i].Fractions[j].GetAsString() + " </span> ";
+			
 		}
 		var stringn = "document.getElementById(\"n\").value";
 		var stringd = "document.getElementById(\"d\").value";
@@ -82,12 +84,12 @@ function OutputQuestion(quiz){
 		newQuestion.innerHTML += '<div class=\"answerHolder\"><input type=\"text\" id=\"n' + (i+1) + '\" size=\"2\" placeholder=\"N\"/>&nbsp;/&nbsp;<input id=\"d' + (i+1) + '\" type=\"text\" size=\"2\" maxlength=\"2\" placeholder=\"D\" />&nbsp;';
 		
 		
-		newQuestion.innerHTML += '<input type=\"button\" name=\"submit\" value=\"Submit Answer\" id=\"' + (i+1) + '\" onclick=\"GetAnswer('+ (i+1 )+')\" />';
-		newQuestion.innerHTML += '<img src=\"assets/images/template/star.png\" id=\"star' + (i+1) + '\" style=\"visibility:hidden\"></img>';
+		newQuestion.innerHTML += '<input type=\"button\" name=\"submit\" value=\"Submit Answer\" id=\"' + (i+1) + '\" onclick=\"GetAnswer('+ (i+1 )+')\" /><img src=\"\" style=\"top: -34px; left: 150px; position:relative; visibility: hidden;\" id="image' + (i+1) + '" /><img src=\"assets/images/template/bigben.png\" id=\"timebonus' + (i+1) + '\" style=\"top: -34px; left: 150px; position:relative; visibility:hidden\" />';
+		newQuestion.innerHTML += '<span style=\"visibility:hidden\">' + quiz.Questions[i].Answer.GetAsString() + '</span>';
+		/*newQuestion.innerHTML += '<img src=\"assets/images/template/star.png\" id=\"star' + (i+1) + '\" style=\"visibility:hidden\"></img>';
 		newQuestion.innerHTML += '<img src=\"assets/images/template/bigben.png\" id=\"timebonus' + (i+1) + '\" style=\"visibility:hidden\"></img>';
-		newQuestion.innerHTML += '<img src=\"assets/images/template/x.png\" id=\"X' + (i+1) + '\" style=\"visibility:hidden\"></img>';
-        
-		newQuestion.innerHTML += '</div><br /><br />';
+		newQuestion.innerHTML += '<img src=\"assets/images/template/x.png\" id=\"X' + (i+1) + '\" style=\"visibility:hidden\"></img>';*/
+		newQuestion.innerHTML += '</div>';
 		
 		
 		gameContent.appendChild(newQuestion);
@@ -99,6 +101,15 @@ function DisplayScore(quiz)
 {
 //Display the score to the game content div	
 	alert("Score Should be displayed to html")
+	var gameContent = document.getElementById("gameContent");
+	var scoreDiv = document.createElement("div");
+	scoreDiv.innerHTML += "<span style=\"font-size: 32px; color: #2856aa; \">Correct: </span><span style=\"font-size: 32px; \">" + quiz.Correct + "</span><br />";
+	scoreDiv.innerHTML += "<span style=\"font-size: 32px; color: #2856aa; \">Wrong: </span><span style=\"font-size: 32px; \">" + quiz.Wrong + "</span><br />";
+	scoreDiv.innerHTML += "<span style=\"font-size: 32px; color: #2856aa; \">Time Bonus: </span><span style=\"font-size: 32px; \">" + quiz.TimeScore + "</span><br />";
+	scoreDiv.innerHTML += "<span style=\"font-size: 32px; color: #2856aa; \">Score: </span><span style=\"font-size: 32px; \">" + quiz.Score + "</span>";
+	
+	gameContent.appendChild(scoreDiv);
+	
 }
 
 function DisableQuestion(index)
@@ -108,12 +119,16 @@ function DisableQuestion(index)
 
 function ShowStar(id)
 {
-	 document.getElementById('star' + id ).style.visibility='visible';
+	document.getElementById('image' + id).src = 'assets/images/template/star.png';
+	document.getElementById('image' + id).style.visibility='visible';
+	//document.getElementById('star' + id).style.visibility='visible';
 }
 
 function ShowCheck(id)
 {
-	 document.getElementById('X' + id).style.visibility='visible';
+	document.getElementById('image' + id).src = 'assets/images/template/x.png';
+	document.getElementById('image' + id).style.visibility='visible';
+	//document.getElementById('X' + id).style.visibility='visible';
 }
 
 function ShowTimeBonus(id, bonus)
