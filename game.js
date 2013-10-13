@@ -69,7 +69,11 @@ function ReceiveInput(id, answer)
 	//Else it is not the last question
 	{
 		//Start The Timer --To Do
-		_StopWatch.start();
+		if(window._Options.Timer)
+		{
+			_StopWatch.start();
+		}
+		
 		//Output Next Question
 		OutputQuestion(window._Quiz);	
 		
