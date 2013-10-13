@@ -6,7 +6,7 @@ var _Quiz;
 
 function GameStart()
 {	
-	
+	alert(window.tim)
 	//Create the quiz for the user to take
 	window._Quiz = new Quiz();
 	
