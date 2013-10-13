@@ -145,6 +145,5 @@ function DisplayScoreQuizButton()
 
 function DisplayAnswer(id)
 {
-	//Based on the id make the place holder for the answer hide or show
-	alert("Answer should Show");
+	document.getElementById('answer' + id).style.visibility='visible';
 }
