@@ -84,12 +84,12 @@ function OutputQuestion(quiz){
 		newQuestion.innerHTML += '<div class=\"answerHolder\"><input type=\"text\" id=\"n' + (i+1) + '\" size=\"2\" placeholder=\"N\"/>&nbsp;/&nbsp;<input id=\"d' + (i+1) + '\" type=\"text\" size=\"2\" maxlength=\"2\" placeholder=\"D\" />&nbsp;';
 		
 		
-		newQuestion.innerHTML += '<input type=\"button\" name=\"submit\" value=\"Submit Answer\" id=\"' + (i+1) + '\" onclick=\"GetAnswer('+ (i+1 )+')\" /><img src=\"\" style=\"top: -34px; left: 150px; position:relative; visibility: hidden;\" id="image' + (i+1) + '" /><img src=\"assets/images/template/bigben.png\" id=\"timebonus' + (i+1) + '\" style=\"top: -34px; left: 150px; position:relative; visibility:hidden\" />';
-		newQuestion.innerHTML += '<span style=\"visibility:hidden\" id=\"answer' + (i+1) + '\">' + quiz.Questions[i].Answer.GetAsStringNoMystery() + '</span>';
+		newQuestion.innerHTML += '<input type=\"button\" name=\"submit\" value=\"Submit Answer\" id=\"' + (i+1) + '\" onclick=\"GetAnswer('+ (i+1 )+')\" /><img src=\"\" style=\"top: -34px; left: 120px; position:relative; visibility: hidden;\" id="image' + (i+1) + '" /><img src=\"assets/images/template/bigben.png\" id=\"timebonus' + (i+1) + '\" style=\"top: -34px; left: 120px; position:relative; visibility:hidden\" />';
+		newQuestion.innerHTML += '<span style=\"font-weight: bold; left: -50px; position:relative; visibility:hidden\" id=\"answer' + (i+1) + '\">Q'+ (i+1) +' Answer: ' + quiz.Questions[i].Answer.GetAsStringNoMystery() + '</span>';
 		/*newQuestion.innerHTML += '<img src=\"assets/images/template/star.png\" id=\"star' + (i+1) + '\" style=\"visibility:hidden\"></img>';
 		newQuestion.innerHTML += '<img src=\"assets/images/template/bigben.png\" id=\"timebonus' + (i+1) + '\" style=\"visibility:hidden\"></img>';
 		newQuestion.innerHTML += '<img src=\"assets/images/template/x.png\" id=\"X' + (i+1) + '\" style=\"visibility:hidden\"></img>';*/
-		newQuestion.innerHTML += '</div>';
+		newQuestion.innerHTML += '</div><br /><br />';
 		
 		
 		gameContent.appendChild(newQuestion);
