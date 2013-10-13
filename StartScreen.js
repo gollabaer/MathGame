@@ -1,7 +1,7 @@
 function screenStart()
 {
 	
-	var chooseMode = document.createElement("div");
+	/*var chooseMode = document.createElement("div");
 	
 	chooseMode.innerHTML += '<div id="mode">';
 	
@@ -15,8 +15,15 @@ function screenStart()
 	chooseMode.innerHTML += '</div><br /><br />';
 		
 		
-		gameContent.appendChild(chooseMode);	
+		gameContent.appendChild(chooseMode);	*/
+		
+		
 	
+}
+
+$('#BasicMode').change(function(event){
+	document.getElementById('LevelSelect').style.visibility='hidden';	
+		
 }
 
 function easyMode()
