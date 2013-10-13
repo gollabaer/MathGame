@@ -8,7 +8,7 @@ function Options()
 	this.MaxColors = 4;
 	this.MinQuizzes = 1;
 	this.MaxQuizzes = 3;
-	this.TimerAmount = 10;
+	this.TimerAmount = 100;
 	this.RevealAnswers = false;
 	
 	//This will enable the random fraction generator

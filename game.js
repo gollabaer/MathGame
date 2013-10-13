@@ -3,16 +3,19 @@ var _Options = new Options();
 var _FractionPool = new FractionPool();
 var _Quiz;
 
+
 function GameStart()
 {	
+	
 	//Create the quiz for the user to take
 	window._Quiz = new Quiz();
 	
 	if(window._Options.Timer)
 	{
-		//Start The Timer --To Do
+		_StopWatch.start();
+		
 	}
-	
+	//alert("GameSTART with timer: " + window._Options.Timer);
 	//Output first question of the quiz
 	OutputQuestion(window._Quiz);
 }
@@ -25,7 +28,10 @@ function ReceiveInput(id, answer)
 {
 	if(window._Options.Timer)
 	{
-		//Stop The Timer --To Do
+		_StopWatch.stop();
+		var timediff = window._Options.TimerAmount - _StopWatch.duration();
+		if(timediff > 0)
+		window._Quiz.Questions[id-1].TimeBonus = timediff;
 	}
 	
 	//If the answer is right
@@ -57,12 +63,13 @@ function ReceiveInput(id, answer)
 		
 		//Debug This call will actually be made from the Score Quiz button onClick Handler
 		alert("Score Test Button Simulation Click")
+		
 		CalculateScore(window._Quiz);
 	}
 	//Else it is not the last question
 	{
 		//Start The Timer --To Do
-		
+		_StopWatch.start();
 		//Output Next Question
 		OutputQuestion(window._Quiz);	
 		
@@ -105,14 +112,17 @@ function wrong(id)
 
 function CalculateScore(quiz)
 {
-	//Calculate the quiz score
-	quiz.CalculateScore();
+
 	
 	//Calculate the time Bonus
 	if(window._Options.Timer)
 	{
 		quiz.ScoreTime();
 	}
+
+	//Calculate the quiz score
+	quiz.CalculateScore(window._Options.Timer,window._Options.TimerAmount );
+	
 	
 	//Output Score to Game div
 	DisplayScore(quiz);

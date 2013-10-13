@@ -16,6 +16,9 @@ function Quiz()
 	this.TimeScore = 0;
 	this.CurrentQuestion = 0;
 	
+	this.TimePercentage = 0.4;
+	this.neededPercentage = 0.5;
+	
 	this.SetUpQuiz();
 }
 
@@ -47,15 +50,41 @@ Quiz.prototype.SetUpQuiz = function()
 	}
 };
 
-Quiz.prototype.CalculateScore = function()
+Quiz.prototype.CalculateScore = function(timed, timeAmount)
 {
+	for (var i = 0; i < this.Questions.length; i++) {
+		if(this.Questions[i].Correct){
+			this.Correct += 1;
+			}
+		else{
+			this.Wrong += 1;
+			}
+		}
+	var accuracy = this.Correct / this.Questions.length;
+	var speed = this.TimeScore / ((timeAmount * this.Questions.length) * this.neededPercentage);
+		
+	if(timed){
+		this.Score = this.TimePercentage * speed + (1 - this.TimePercentage) * accuracy;
+		}
+	else{
+		this.Score = accuracy;
+		}
+			
+	this.Score = Math.round(this.Score * 100) / 100;
+
 	//Calculate Score this.Score, this.Correct, this.Wrong
-	alert("Score is calculated");
+	alert("Score is calculated: " + this.Score);
 };
 
 Quiz.prototype.ScoreTime = function()
 {
+	var totalTime = 0;
+	for (var i = 0; i < this.Questions.length; i++) {
+		if(this.Questions[i].Correct){
+		totalTime += this.Questions[i].TimeBonus;
+		}
+	}
+	this.TimeScore = totalTime;
 	//Calculate Time Score this.TimeScore
-	alert("Time is calculated");
+	alert("Time is calculated: "+ this.TimeScore);
 };
-

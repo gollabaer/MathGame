@@ -38,7 +38,7 @@ function Timer()
 	function getTime()
 	{
 		  return new Date().getTime();
-	}
+	};
 }
 
 
