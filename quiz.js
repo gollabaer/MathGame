@@ -16,7 +16,9 @@ function Quiz()
 	this.TimeScore = 0;
 	this.CurrentQuestion = 0;
 	
+	//How much is the remaining time "worth"
 	this.TimePercentage = 0.4;
+	//How much time has the user relative to the total time to answer the question
 	this.neededPercentage = 0.5;
 	
 	this.SetUpQuiz();
@@ -52,6 +54,7 @@ Quiz.prototype.SetUpQuiz = function()
 
 Quiz.prototype.CalculateScore = function(timed, timeAmount)
 {
+//	Counting Wrong and Right Answers
 	for (var i = 0; i < this.Questions.length; i++) {
 		if(this.Questions[i].Correct){
 			this.Correct += 1;
@@ -60,9 +63,14 @@ Quiz.prototype.CalculateScore = function(timed, timeAmount)
 			this.Wrong += 1;
 			}
 		}
+	
 	var accuracy = this.Correct / this.Questions.length;
-	var speed = this.TimeScore / ((timeAmount * this.Questions.length) * this.neededPercentage);
+	
+	// remaining time / (Total given time * % )
+	var speed = this.TimeScore / 
+					((timeAmount * this.Questions.length) * this.neededPercentage);
 		
+// 	Claculate Score as %
 	if(timed){
 		this.Score = this.TimePercentage * speed + (1 - this.TimePercentage) * accuracy;
 		}
@@ -70,7 +78,7 @@ Quiz.prototype.CalculateScore = function(timed, timeAmount)
 		this.Score = accuracy;
 		}
 			
-	this.Score = Math.round(this.Score * 100) / 100;
+	this.Score = Math.round(this.Score * 100);// * 100;
 
 	//Calculate Score this.Score, this.Correct, this.Wrong
 	alert("Score is calculated: " + this.Score);
