@@ -119,10 +119,17 @@ function revealAnswerFalse()
 
 function startGame()
 {
+	
+if($("#timerON").is(":checked"))
+{
 	window._Options.TimerAmount = document.getElementById('TimerAmount').value;
+	
+}
+
 
 
 window._Options.MinimumQuestions = document.getElementById('MinQ').value;
+
 
 
 
