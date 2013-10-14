@@ -1,8 +1,6 @@
 var _StopWatch = new Timer();
-var _Options = new Options();
 var _FractionPool = new FractionPool();
 var _Quiz;
-
 
 function GameStart()
 {	

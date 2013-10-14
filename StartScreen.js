@@ -1,3 +1,5 @@
+var _Options = new Options();
+
 function screenStart()
 {
 	
@@ -122,28 +124,28 @@ function startGame()
 	
 if($("#timerON").is(":checked"))
 {
-	window._Options.TimerAmount = document.getElementById('TimerAmount').value;
+	window._Options.TimerAmount = parseInt(document.getElementById('TimerAmount').value);
 	
 }
 
 
 
-window._Options.MinimumQuestions = document.getElementById('MinQ').value;
+window._Options.MinimumQuestions = parseInt(document.getElementById('MinQ').value);
 
 
 
 
-window._Options.MaximumQuestions = document.getElementById('MaxQ').value;
+window._Options.MaximumQuestions = parseInt(document.getElementById('MaxQ').value);
 
 
 if($("#ChallengeMode").is(":checked"))
 {
-	window._Options.Level = document.getElementById('levelSelect').value
-	
+	window._Options.Level = parseInt(document.getElementById('levelSelect').value);
 }
 
 
 $("#gameOptions").hide();
+
 GameStart();
 
 
