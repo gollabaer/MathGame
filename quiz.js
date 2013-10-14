@@ -66,19 +66,20 @@ Quiz.prototype.CalculateScore = function(timed, timeAmount)
 	
 	var accuracy = this.Correct / this.Questions.length;
 	
-	// remaining time / (Total given time * % )
-	var speed = this.TimeScore / 
-					((timeAmount * this.Questions.length) * this.neededPercentage);
-		
+	if(timed){
+	this.TimeScore = 100 *	this.TimePercentage * 
+							(this.TimeScore / ((timeAmount * this.Questions.length) * this.neededPercentage));
+	this.TimeScore = Math.round(this.TimeScore);
+	}
 // 	Claculate Score as %
 	if(timed){
-		this.Score = this.TimePercentage * speed + (1 - this.TimePercentage) * accuracy;
+		this.Score = this.TimeScore + Math.round(100 * (1 - this.TimePercentage) * accuracy);
 		}
 	else{
-		this.Score = accuracy;
+		this.Score = Math.round(100 * accuracy);
 		}
 			
-	this.Score = Math.round(this.Score * 100);// * 100;
+	
 
 	//Calculate Score this.Score, this.Correct, this.Wrong
 	alert("Score is calculated: " + this.Score);
