@@ -85,11 +85,11 @@ function OutputQuestion(quiz){
 		
 		
 		newQuestion.innerHTML += '<input type=\"button\" name=\"submit\" value=\"Submit Answer\" id=\"' + (i+1) + '\" onclick=\"GetAnswer('+ (i+1 )+')\" /><img src=\"\" style=\"top: -34px; left: 150px; position:relative; visibility: hidden;\" id="image' + (i+1) + '" /><img src=\"assets/images/template/bigben.png\" id=\"timebonus' + (i+1) + '\" style=\"top: -34px; left: 150px; position:relative; visibility:hidden\" />';
-		newQuestion.innerHTML += '<span style=\"visibility:hidden\">' + quiz.Questions[i].Answer.GetAsString() + '</span>';
+		newQuestion.innerHTML += '<span style=\"font-weight: bold; left: -50px; position:relative; visibility:hidden\" id=\"answer' + (i+1) + '\">Q'+ (i+1) +' Answer: ' + quiz.Questions[i].Answer.GetAsStringNoMystery() + '</span>';
 		/*newQuestion.innerHTML += '<img src=\"assets/images/template/star.png\" id=\"star' + (i+1) + '\" style=\"visibility:hidden\"></img>';
 		newQuestion.innerHTML += '<img src=\"assets/images/template/bigben.png\" id=\"timebonus' + (i+1) + '\" style=\"visibility:hidden\"></img>';
 		newQuestion.innerHTML += '<img src=\"assets/images/template/x.png\" id=\"X' + (i+1) + '\" style=\"visibility:hidden\"></img>';*/
-		newQuestion.innerHTML += '</div>';
+		newQuestion.innerHTML += '</div><br /><br />';
 		
 		
 		gameContent.appendChild(newQuestion);
@@ -145,6 +145,5 @@ function DisplayScoreQuizButton()
 
 function DisplayAnswer(id)
 {
-	//Based on the id make the place holder for the answer hide or show
-	alert("Answer should Show");
+	document.getElementById('answer' + id).style.visibility='visible';
 }

@@ -6,7 +6,6 @@ var _Quiz;
 
 function GameStart()
 {	
-	
 	//Create the quiz for the user to take
 	window._Quiz = new Quiz();
 	

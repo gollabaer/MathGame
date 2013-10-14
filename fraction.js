@@ -41,6 +41,11 @@ Fraction.prototype.string = function(fraction)
             this.DecValue = frac2dec(this._fractionAsString);
         };
 
+Fraction.prototype.GetAsStringNoMystery = function()
+{
+     return this.Numerator + "/" + this.Denominator;
+};
+        
 Fraction.prototype.GetAsString = function()
         {
             if (this.IsMystery)
