@@ -1,30 +1,46 @@
 function screenStart()
 {
 	
-	/*var chooseMode = document.createElement("div");
-	
-	chooseMode.innerHTML += '<div id="mode">';
-	
-	chooseMode.innerHTML += '<h2>Choose a game Mode</h2>';
-	
-	
-	chooseMode.innerHTML += '<input type=\"button\" name=\"submit\" value=\"Easy\" id=\"EasyMode\" onclick=\"easyMode()\" />';
-	chooseMode.innerHTML += '<input type=\"button\" name=\"submit\" value=\"Medium\" id=\"MediumMode\" onclick=\"mediumMode()\" />';
-	chooseMode.innerHTML += '<input type=\"button\" name=\"submit\" value=\"hard\" id=\"HardMode\" onclick=\"hardMode()\" />';
-	chooseMode.innerHTML += '</div>';
-	chooseMode.innerHTML += '</div><br /><br />';
-		
-		
-		gameContent.appendChild(chooseMode);	*/
-		
+$("#TimerAmnt").hide();
+$("#LevelSelect").hide();
+
+
 		
 	
 }
 
-$('#BasicMode').change(function(event){
-	document.getElementById('LevelSelect').style.visibility='hidden';	
-		
-}
+jQuery(document).ready(function ()
+    {
+        $("#BasicMode").change(ModeChanged);
+		$("#ChallengeMode").change(ModeChanged);
+		//$("#timerON").change(timerChanged);
+    })
+	
+	/*function timerChanged()
+	{
+		if($("#timerON").is(":checked") )
+        {
+            
+			 $("#timer").show();
+        }
+	}*/
+
+    function ModeChanged()
+    {
+        
+
+        if($("#BasicMode").is(":checked") )
+        {
+            $("#LevelSelect").hide();
+			 $("#BasicModeLevel").show();
+        }
+        else if ($("#ChallengeMode").is(":checked"))
+        {
+            $("#LevelSelect").show();
+			 $("#BasicModeLevel").hide();
+        }
+    } 
+
 
 function easyMode()
 {
@@ -32,10 +48,7 @@ function easyMode()
 	window._Options.Level = 1;
 	alert (window._Options.Level);
 	
-	GameStart();
-	var elem = document.getElementById('EasyMode');
-    elem.parentNode.removeChild(elem);
-    return false;
+	
 	
 	
 	
@@ -51,10 +64,8 @@ function mediumMode()
 	window._Options.Level = 2;
 	alert (window._Options.Level);
 	
-	GameStart();
-	var elem = document.getElementById('MediumMode');
-    elem.parentNode.removeChild(elem);
-    return false;
+	
+	
 	
 	
 	
@@ -68,13 +79,65 @@ function hardMode()
 	window._Options.Level = 3;
 	alert (window._Options.Level);
 	
-	GameStart();
-	var elem = document.getElementById('HardMode');
-    elem.parentNode.removeChild(elem);
-    return false;
 	
 	
 	
 	
 	
+	
+}
+
+function timerOn()
+{
+	window._Options.Timer = true;
+	$("#TimerAmnt").show();
+	
+	
+}
+
+function timerOff()
+{
+		window._Options.Timer = false;
+		$("#TimerAmnt").hide();
+	
+
+}
+
+function revealAnswerTrue()
+{
+	window._Options.RevealAnswers = true;
+	alert (window._Options.RevealAnswers);
+	
+}
+
+function revealAnswerFalse()
+{
+		window._Options.RevealAnswers = false;
+	alert (window._Options.RevealAnswers);
+
+}
+
+function startGame()
+{
+	window._Options.TimerAmount = document.getElementById('TimerAmount').value;
+
+
+window._Options.MinimumQuestions = document.getElementById('MinQ').value;
+
+
+
+window._Options.MaximumQuestions = document.getElementById('MaxQ').value;
+
+
+if($("#ChallengeMode").is(":checked"))
+{
+	window._Options.Level = document.getElementById('levelSelect').value
+	
+}
+
+
+$("#gameOptions").hide();
+GameStart();
+
+
 }

@@ -37,22 +37,21 @@
                 <h2>Every question lists the fraction of tiles in a bucket. Find the missing fraction in each question that makes the bucket of tiles completely full.</h2>
                 <p></p>
             </header>
-            <div id="gameContent" class="content">
-            
-            <form>
+            <div id="gameOptions" class="content">
+                       <form>
             <h2>Game options</h2>
   <div id="timer">
   	<h3>Timer</h3>
-    <input type="radio" id="timerON" name="radio" /><label for="timerON">On</label>
-    <input type="radio" id="timerOFF" name="radio" checked="checked" /><label for="timerOFF">Off</label>
+    <input type="radio" id="timerON" name="radio" onclick="timerOn()" /><label for="timerON">On</label>
+    <input type="radio" id="timerOFF" name="radio" checked="checked" onclick="timerOff()"/><label for="timerOFF">Off</label>
    
   </div><br />
   </form>
   
    <form>
-  <div id="TimerAmount">
+  <div id="TimerAmnt">
   	<h3>Timer Amount Per Question</h3>
-    <input type="text" id="TimerAmnt" name="Time" />
+    <input type="text" id="TimerAmount" name="Time" />
     
   </div>
 </form><br />
@@ -60,8 +59,8 @@
  <form>
   <div id="answers">
   	<h3>Reveal Answers</h3>
-    <input type="radio" id="answersON" name="radio" /><label for="answersON">On</label>
-    <input type="radio" id="answersOFF" name="radio" checked="checked" /><label for="answersOFF">Off</label>
+    <input type="radio" id="answersON" name="radio" checked="checked" onclick="revealAnswerTrue()" /><label for="answersON">On</label>
+    <input type="radio" id="answersOFF" name="radio" onclick="revealAnswerFalse()" /><label for="answersOFF">Off</label>
    
   </div><br />
   </form>
@@ -86,30 +85,42 @@
   <form>
   <div id="modeSelect">
   	<h3>Select Mode</h3>
-    <input type="radio" id="BasicMode" name="radio" /><label for="BasicMode">Basic Mode</label>
+    <input type="radio" id="BasicMode" checked="checked" name="radio" /><label for="BasicMode">Basic Mode</label>
     <input type="radio" id="ChallengeMode" name="radio" /><label for="ChallengeMode">Challenge Mode</label>
    
   </div>
 </form><br />
 
  <form>
-  <div id="BasicMode">
-  	<h3>Select Mode</h3>
-    <input type="radio" id="Easy" name="Mode" /><label for="Easy">Easy</label>
-     <input type="radio" id="Medium" name="Mode" /><label for="Medium">Medium</label>
-      <input type="radio" id="hard" name="Mode" /><label for="Hard">Hard</label>
+  <div id="BasicModeLevel">
+  	<h3>Select Level</h3>
+    <input type="radio" id="Easy" name="Mode" onclick="easyMode()" /><label for="Easy">Easy</label>
+     <input type="radio" id="Medium" name="Mode" onclick="mediumMode()" /><label for="Medium">Medium</label>
+      <input type="radio" id="hard" name="Mode" onclick="hardMode()" /><label for="Hard">Hard</label>
     
   </div>
 </form><br />
 
 <form>
   <div id="LevelSelect">
-  	<h3>level Select</h3>
+  	<h3>Enter Level</h3>
     <input type="text" id="levelSelect" name="Level" />
     
   </div>
 </form><br />
 
+<form>
+  <div id="Start">
+  	
+    <input type="button" id="startButton" onclick="startGame()" value="Start Game!"/>
+    
+  </div>
+</form><br />
+            
+            </div>
+            <div id="gameContent" class="content">
+            
+ 
 
          
 					
@@ -129,7 +140,6 @@ screenStart();
 
 
 
-<script type="text/javascript">
-</script>
+
 </body>
 </html>
