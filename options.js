@@ -9,7 +9,7 @@ function Options()
 	this.MinQuizzes = 1;
 	this.MaxQuizzes = 3;
 	this.TimerAmount = 100;
-	this.RevealAnswers = false;
+	this.RevealAnswers = true;
 	
 	//This will enable the random fraction generator
 	//If Use Generator is true than level can be no greater than 3
