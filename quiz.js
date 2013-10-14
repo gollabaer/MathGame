@@ -82,7 +82,7 @@ Quiz.prototype.CalculateScore = function(timed, timeAmount)
 	
 
 	//Calculate Score this.Score, this.Correct, this.Wrong
-	alert("Score is calculated: " + this.Score);
+
 };
 
 Quiz.prototype.ScoreTime = function()
@@ -95,5 +95,5 @@ Quiz.prototype.ScoreTime = function()
 	}
 	this.TimeScore = totalTime;
 	//Calculate Time Score this.TimeScore
-	alert("Time is calculated: "+ this.TimeScore);
+
 };
