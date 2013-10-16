@@ -1,6 +1,6 @@
 function Options()
 {
-	this.Timer = true;
+	this.Timer = false
 	
 	this.MinimumQuestions = 3;
 	this.MaximumQuestions = 3;

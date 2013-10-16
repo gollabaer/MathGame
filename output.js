@@ -28,7 +28,11 @@ function DisplayScore(quiz)
 	var scoreDiv = document.createElement("div");
 	scoreDiv.innerHTML += "<span style=\"font-size: 32px; color: #2856aa; \">Correct: </span><span style=\"font-size: 32px; \">" + quiz.Correct + "</span><br />";
 	scoreDiv.innerHTML += "<span style=\"font-size: 32px; color: #2856aa; \">Wrong: </span><span style=\"font-size: 32px; \">" + quiz.Wrong + "</span><br />";
-	scoreDiv.innerHTML += "<span style=\"font-size: 32px; color: #2856aa; \">Time Bonus: </span><span style=\"font-size: 32px; \">" + quiz.TimeScore + "</span><br />";
+	if (window._Options.Timer)
+	{
+	    scoreDiv.innerHTML += "<span style=\"font-size: 32px; color: #2856aa; \">Time Bonus: </span><span style=\"font-size: 32px; \">" + quiz.TimeScore + "</span><br />";
+	}
+
 	scoreDiv.innerHTML += "<span style=\"font-size: 32px; color: #2856aa; \">Score: </span><span style=\"font-size: 32px; \">" + quiz.Score + "</span>";
 	
 	gameContent.appendChild(scoreDiv);
@@ -57,10 +61,6 @@ function ShowTimeBonus(id, bonus)
 	document.getElementById('timebonus' + id).innerHTML = '<p>' +bonus + '</p>';
 }
 
-function DisplayScoreQuizButton()
-{
-
-}
 
 function DisplayAnswer(id)
 {

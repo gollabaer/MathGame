@@ -36,7 +36,8 @@
  <div id="container">
    <header class="content">
                 <h1>Tile Fractions Game</h1>
-                <h2>Every question lists the fraction of tiles in a bucket. Find the missing fraction in each question that makes the bucket of tiles completely full.</h2>
+                <h2 id="aboutGame">Every question lists the fraction of tiles in a bucket. Find the missing fraction in each question that makes the bucket of tiles completely full.</h2>
+                <h2 id="gameOpt">Select Your Gameplay Options</h2>
                 <p></p>
             </header>
             <div id="gameOptions" class="content">
@@ -70,7 +71,10 @@
   <form>
   <div id="MinQuestions">
   	<h3>Minimum Number of Questions</h3>
-    <input type="text" id="MinQ" name="Min" />
+   <input type="text" id="minamount" style="border: 0; color: #06F; font-weight: bold;" />
+
+<div id="slider-range-min"></div>
+ 
     
   </div>
 </form><br />
@@ -78,7 +82,10 @@
  <form>
   <div id="MaxQuestions">
   	<h3>Maximum Number of Questions</h3>
-    <input type="text" id="MaxQ" name="Max" />
+     <input type="text" id="maxamount" style="border: 0; color: #06F; font-weight: bold;" />
+
+<div id="slider-range-max"></div>
+ 
     
   </div>
 </form><br />
@@ -96,7 +103,7 @@
  <form>
   <div id="BasicModeLevel">
   	<h3>Select Level</h3>
-    <input type="radio" id="Easy" name="Mode" onclick="easyMode()" /><label for="Easy">Easy</label>
+    <input type="radio" id="Easy" name="Mode" checked="checked" onclick="easyMode()" /><label for="Easy">Easy</label>
      <input type="radio" id="Medium" name="Mode" onclick="mediumMode()" /><label for="Medium">Medium</label>
       <input type="radio" id="hard" name="Mode" onclick="hardMode()" /><label for="Hard">Hard</label>
     

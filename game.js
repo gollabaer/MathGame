@@ -56,11 +56,6 @@ function ReceiveInput(id, answer)
 	//If the last question display the score quiz button
 	if(window._Quiz.CurrentQuestion == window._Quiz.Questions.length)
 	{
-		DisplayScoreQuizButton();
-		
-		//Debug This call will actually be made from the Score Quiz button onClick Handler
-		alert("Score Test Button Simulation Click")
-		
 		CalculateScore(window._Quiz);
 	}
 	//Else it is not the last question
